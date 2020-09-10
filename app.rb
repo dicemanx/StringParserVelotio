@@ -18,17 +18,21 @@ DOLLAR_ENTRIES = [ # City, Birth date, Last name, First name
 
 class Parser
   def self.parse_with_split
-    COMMA_ENTRIES.each do |comma_entry|
-      output = comma_entry.split(', ')
-      parsed_date = self.parse_date_comma(output.last)
-      formatted_date = self.format_date(parsed_date)
-      puts output.first + ' ' + output[1] + ' ' + formatted_date #output[1] is the second element of output array
-    end
-    DOLLAR_ENTRIES.each do |dollar_entry|
-      output = dollar_entry.split('$ ')
-      parsed_date = self.parse_date_dollar(output[1]) #output[1] is the second element of output array
-      formatted_date = self.format_date(parsed_date)
-      puts output.last + ' ' + ' ' + output.first + ' ' + formatted_date
+    begin
+      COMMA_ENTRIES.each do |comma_entry|
+        output = comma_entry.split(', ')
+        parsed_date = self.parse_date_comma(output.last)
+        formatted_date = self.format_date(parsed_date)
+        puts output.first + ' ' + output[1] + ' ' + formatted_date #output[1] is the second element of output array
+      end
+      DOLLAR_ENTRIES.each do |dollar_entry|
+        output = dollar_entry.split('$ ')
+        parsed_date = self.parse_date_dollar(output[1]) #output[1] is the second element of output array
+        formatted_date = self.format_date(parsed_date)
+        puts output.last + ' ' + ' ' + output.first + ' ' + formatted_date
+      end
+    rescue StandardError => e
+      puts "Something went wrong: #{e.inspect}"
     end
   end
 
