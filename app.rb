@@ -8,6 +8,10 @@ DOLLAR_ENTRIES = [ # City, Birth date, Last name, First name
 ]
 
 # WRITE YOUR CLASSES HERE
+#Using String.split
+#Using StringScanner
+#Using String.scan
+#Using Nokogiri
 
 
 class App
